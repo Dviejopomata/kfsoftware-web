@@ -1,0 +1,16 @@
+version: "3"
+services:
+  strapi:
+    image: strapi/strapi:3.2.5-alpine
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: 192.168.1.57
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    restart: always
+    volumes:
+      - ./app:/srv/app
+    ports:
+      - "1337:1337"
