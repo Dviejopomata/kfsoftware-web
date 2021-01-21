@@ -2,12 +2,12 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import Link from "next/link";
 import tinytime from "tinytime";
-import getAllServicesPreview from "@/lib/getAllServicesPreview";
+import getAllPostPreviews from "@/lib/getAllPostPreviews";
 
-const products = getAllServicesPreview();
+const posts = getAllPostPreviews();
 const postDateTemplate = tinytime("{MMMM} {DD}, {YYYY}");
 
-export default function ServicesIndex({}) {
+export default function BlogIndex({}) {
   return (
     <>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
@@ -18,7 +18,7 @@ export default function ServicesIndex({}) {
           <Head></Head>
           <div className="pt-6 pb-8 space-y-2 md:space-y-5">
             <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              Servicios
+              Blog
             </h1>
             <p className="text-lg leading-7 text-gray-500">
               Noticias y chascarrillos sobre tecnologia.
@@ -26,7 +26,7 @@ export default function ServicesIndex({}) {
           </div>
 
           <ul className="divide-y divide-gray-200">
-            {products.map(({ link, module: { default: Component, meta } }) => {
+            {posts.map(({ link, module: { default: Component, meta } }) => {
               return (
                 <li key={link} className="py-12">
                   <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
@@ -66,6 +66,18 @@ export default function ServicesIndex({}) {
             })}
           </ul>
 
+          {/* <ul>
+        {posts.map((post) => (
+          <li key={post.filePath}>
+            <Link
+              as={`/blog/${post.filePath.replace(/\.mdx?$/, "")}`}
+              href={`/blog/[slug]`}
+            >
+              <a>{post.data.title}</a>
+            </Link>
+          </li>
+        ))}
+      </ul> */}
         </div>
       </div>
     </>

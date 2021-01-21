@@ -1,28 +1,52 @@
-import { useState } from "react";
-import Head from "next/head";
-import { gql, useQuery } from "@apollo/client";
+import getAllProductsPreview from "@/lib/getAllProductsPreview";
 import { Transition } from "@headlessui/react";
-import withApollo from "../lib/withApollo";
-import { getDataFromTree } from "@apollo/react-ssr";
-import { useForm } from "react-hook-form";
-import ApolloClient, { InMemoryCache } from "apollo-boost";
+import Head from "next/head";
 import Link from "next/link";
-const PROJECTS_QUERY = gql`
-  query GetExchangeRates {
-    projects {
-      id
-      name
-      description
-      type
-      url
-      logo {
-        url
-      }
-    }
-  }
-`;
+import path from "path";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import getAllPostPreviews from "@/lib/getAllPostPreviews";
+const posts = getAllPostPreviews();
 
-function Home({ projects }) {
+// import { PROJECTS_PATH, projectsFilePaths } from "../utils/mdxUtils";
+
+function Hero({ setIsContactOpen }) {
+  return (
+    <main className="mt-10 mx-auto max-w-screen-xl px-4 pb-4 sm:mt-12 sm:px-6 sm:pb-12 md:mt-16 md:pb-16 lg:mt-20 lg:pb-20 xl:mt-28 xl:pb-28">
+      <div className="text-center">
+        <h2 className="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+          {"Centrate en tu "}
+          <br className="xl:hidden" />
+          <span className="text-indigo-600">empresa</span>
+        </h2>
+        <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+          Aplicaciones SaaS para aumentar la productividad y ser usados por
+          empresas y desarrolladores de cualquier tamaño
+        </p>
+        <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+          <div className="rounded-md shadow">
+            <a
+              href="#"
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              Productos
+            </a>
+          </div>
+          <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              Contáctanos
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+const products = getAllProductsPreview();
+function Home({}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [contacted, setContacted] = useState(false);
@@ -31,21 +55,20 @@ function Home({ projects }) {
   const onSubmit = async (data) => {
     console.log(data);
     const formSpreeURL = "https://formspree.io/f/xknpbrrq";
-    const response = await fetch(formSpreeURL, {
+    await fetch(formSpreeURL, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const status = response.status;
 
     setContacted(true);
   };
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Kung Fu Software</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition
@@ -299,8 +322,8 @@ function Home({ projects }) {
               <div className="w-0 flex-1 flex">
                 <a href="#" className="inline-flex">
                   <img
-                    className="h-8 w-auto sm:h-10"
-                    src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
+                    className="h-8 w-auto sm:h-12"
+                    src="/img/kfsoftware.png"
                     alt="Kung Fu Software"
                   />
                 </a>
@@ -339,11 +362,11 @@ function Home({ projects }) {
                     Productos
                   </a>
                 </Link>
-                <Link href="/services" as="/services">
+                {/* <Link href="/services" as="/services">
                   <a className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 transition ease-in-out duration-150">
                     Servicios
                   </a>
-                </Link>
+                </Link> */}
               </nav>
             </div>
           </div>
@@ -588,38 +611,61 @@ function Home({ projects }) {
             </div>
           </Transition>
         </div>
-
-        <main className="mt-10 mx-auto max-w-screen-xl px-4 pb-4 sm:mt-12 sm:px-6 sm:pb-12 md:mt-16 md:pb-16 lg:mt-20 lg:pb-20 xl:mt-28 xl:pb-28">
-          <div className="text-center">
-            <h2 className="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-              {"Centrate en tu "}
-              <br className="xl:hidden" />
-              <span className="text-indigo-600">empresa</span>
-            </h2>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Aplicaciones SaaS para aumentar la productividad y ser usados por
-              empresas y desarrolladores de cualquier tamaño
-            </p>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                >
-                  Productos
-                </a>
-              </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <button
-                  onClick={() => setIsContactOpen(true)}
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                >
-                  Contáctanos
-                </button>
-              </div>
+        {/* <Hero setIsContactOpen={setIsContactOpen} /> */}
+        <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+          <div className="absolute inset-0">
+            <div className="bg-white h-1/3 sm:h-2/3"></div>
+          </div>
+          <div className="relative max-w-7xl mx-auto">
+            <div className="text-center">
+              <h2 className="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+                Blog
+              </h2>
+              <p className="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
+                libero labore natus atque, ducimus sed.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+              {posts &&
+                posts.map(
+                  ({ link, module: { default: Component, meta } }, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+                    >
+                      <div className="flex-shrink-0">
+                        <img
+                          className="h-48 w-full object-cover"
+                          src={meta.image}
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <div className="flex-1">
+                          <p className="text-sm leading-5 font-medium text-indigo-600">
+                            <a href="#" className="hover:underline">
+                              {meta.type.toUpperCase()}
+                            </a>
+                          </p>
+                          <Link href={link}>
+                            <a className="block">
+                              <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+                                {meta.title}
+                              </h3>
+                              <p className="mt-3 text-base leading-6 text-gray-500">
+                                <Component />
+                              </p>
+                            </a>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                )}
             </div>
           </div>
-        </main>
+        </div>
 
         <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
           <div className="absolute inset-0">
@@ -636,38 +682,42 @@ function Home({ projects }) {
               </p>
             </div>
             <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-              {projects &&
-                projects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="flex flex-col rounded-lg shadow-lg overflow-hidden"
-                  >
-                    <div className="flex-shrink-0">
-                      <img
-                        className="h-48 w-full object-cover"
-                        src={project.logo.url}
-                        alt=""
-                      />
-                    </div>
-                    <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                      <div className="flex-1">
-                        <p className="text-sm leading-5 font-medium text-indigo-600">
-                          <a href="#" className="hover:underline">
-                            {project.type}
-                          </a>
-                        </p>
-                        <a target="_blank" href={project.url} className="block">
-                          <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                            {project.name}
-                          </h3>
-                          <p className="mt-3 text-base leading-6 text-gray-500">
-                            {project.description}
+              {products &&
+                products.map(
+                  ({ link, module: { default: Component, meta } }, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+                    >
+                      <div className="flex-shrink-0">
+                        <img
+                          className="h-48 w-full object-cover"
+                          src={meta.image}
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <div className="flex-1">
+                          <p className="text-sm leading-5 font-medium text-indigo-600">
+                            <a href="#" className="hover:underline">
+                              {meta.type.toUpperCase()}
+                            </a>
                           </p>
-                        </a>
+                          <Link href={link}>
+                            <a className="block">
+                              <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+                                {meta.title}
+                              </h3>
+                              <p className="mt-3 text-base leading-6 text-gray-500">
+                                <Component />
+                              </p>
+                            </a>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
             </div>
           </div>
         </div>
@@ -677,19 +727,18 @@ function Home({ projects }) {
 }
 
 export async function getStaticProps() {
-  const apolloClient = new ApolloClient({
-    uri: "http://localhost:1337/graphql",
-    cache: new InMemoryCache(),
-  });
-  console.log("REFRESHING");
-  const {
-    data: { projects },
-  } = await apolloClient.query({
-    query: PROJECTS_QUERY,
-  });
+  // const projects = projectsFilePaths.map((filePath) => {
+  //   const source = fs.readFileSync(path.join(PROJECTS_PATH, filePath));
+  //   const { content, data } = matter(source);
+
+  //   return {
+  //     content,
+  //     data,
+  //     filePath,
+  //   };
+  // });
   return {
-    props: { projects },
-    revalidate: 1,
+    props: {},
   };
 }
 
