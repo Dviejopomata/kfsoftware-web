@@ -30,6 +30,7 @@ module.exports = {
     mode: "all",
     content: [
       "./pages/*.{js,mdx}",
+      "./pages/**/*.{js,mdx}",
       "./components/*.{js,mdx}",
       "./next.config.js",
     ],
