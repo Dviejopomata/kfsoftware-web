@@ -59,8 +59,8 @@ function Home({}) {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     });
 
     setContacted(true);
@@ -212,8 +212,8 @@ function Home({}) {
                                     "Necesitamos el email para contactarte",
                                   pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    message: "El email no es válido",
-                                  },
+                                    message: "El email no es válido"
+                                  }
                                 })}
                                 id="email"
                                 className={`form-input block w-full pr-10 ${
@@ -261,7 +261,7 @@ function Home({}) {
                                 name="telefono"
                                 ref={register({
                                   required:
-                                    "Necesitamos el teléfono para contactarte",
+                                    "Necesitamos el teléfono para contactarte"
                                 })}
                                 id="telefono"
                                 className={`form-input block w-full pr-10 ${
@@ -320,13 +320,15 @@ function Home({}) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
               <div className="w-0 flex-1 flex">
-                <a href="#" className="inline-flex">
-                  <img
-                    className="h-8 w-auto sm:h-12"
-                    src="/img/kfsoftware.png"
-                    alt="Kung Fu Software"
-                  />
-                </a>
+                <Link href="#">
+                  <a className="inline-flex">
+                    <img
+                      className="h-8 w-auto sm:h-12"
+                      src="/img/kfsoftware-mobile.svg"
+                      alt="Kung Fu Software"
+                    />
+                  </a>
+                </Link>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <button
@@ -387,7 +389,7 @@ function Home({}) {
                       <div>
                         <img
                           className="h-8 w-auto"
-                          src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
+                          src="/img/kfsoftware.svg"
                           alt="Workflow"
                         />
                       </div>
@@ -417,52 +419,50 @@ function Home({}) {
                     </div>
                     <div>
                       <nav className="grid gap-y-8">
-                        <a
-                          href="#"
-                          className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
-                        >
-                          {/* Heroicon name: chart-bar */}
-                          <svg
-                            className="flex-shrink-0 h-6 w-6 text-indigo-600"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                            />
-                          </svg>
-                          <div className="text-base leading-6 font-medium text-gray-900">
-                            Analytics
-                          </div>
-                        </a>
-                        <a
-                          href="#"
-                          className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
-                        >
-                          {/* Heroicon name: cursor-click */}
-                          <svg
-                            className="flex-shrink-0 h-6 w-6 text-indigo-600"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-                            />
-                          </svg>
-                          <div className="text-base leading-6 font-medium text-gray-900">
-                            Engagement
-                          </div>
-                        </a>
+                        <Link href="/blog">
+                          <a className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            {/* Heroicon name: chart-bar */}
+                            <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                              />
+                            </svg>
+                            <div className="text-base leading-6 font-medium text-gray-900">
+                              Blog
+                            </div>
+                          </a>
+                        </Link>
+                        <Link href="/products">
+                          <a className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+                            {/* Heroicon name: cursor-click */}
+                            <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                              />
+                            </svg>
+                            <div className="text-base leading-6 font-medium text-gray-900">
+                              Productos
+                            </div>
+                          </a>
+                        </Link>
                         <a
                           href="#"
                           className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
@@ -533,77 +533,6 @@ function Home({}) {
                           </div>
                         </a>
                       </nav>
-                    </div>
-                  </div>
-                  <div className="py-6 px-5 space-y-6">
-                    <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Pricing
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Docs
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Enterprise
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Blog
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Help Center
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Guides
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Security
-                      </a>
-                      <a
-                        href="#"
-                        className="text-base leading-6 font-medium text-gray-900 hover:text-gray-700 transition ease-in-out duration-150"
-                      >
-                        Events
-                      </a>
-                    </div>
-                    <div className="space-y-6">
-                      <span className="w-full flex rounded-md shadow-sm">
-                        <a
-                          href="#"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"
-                        >
-                          Sign up
-                        </a>
-                      </span>
-                      <p className="text-center text-base leading-6 font-medium text-gray-500">
-                        Existing customer?
-                        <a
-                          href="#"
-                          className="text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150"
-                        >
-                          Sign in
-                        </a>
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -738,7 +667,7 @@ export async function getStaticProps() {
   //   };
   // });
   return {
-    props: {},
+    props: {}
   };
 }
 
