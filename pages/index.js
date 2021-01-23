@@ -324,7 +324,7 @@ function Home({}) {
                   <a className="inline-flex">
                     <img
                       className="h-8 w-auto sm:h-12"
-                      src="/img/kfsoftware-mobile.svg"
+                      src="/img/kfsoftware.svg"
                       alt="Kung Fu Software"
                     />
                   </a>
@@ -389,7 +389,7 @@ function Home({}) {
                       <div>
                         <img
                           className="h-8 w-auto"
-                          src="/img/kfsoftware.svg"
+                          src="/img/kfsoftware-mobile.svg"
                           alt="Workflow"
                         />
                       </div>

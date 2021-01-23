@@ -4,7 +4,6 @@ function TailwindMark({ className }) {
   return (
     <svg
       className={className}
-      width="75"
       height="47.168954866931735"
       viewBox="0 0 75 47.168954866931735"
     >
@@ -28,7 +27,6 @@ function TailwindLogo({ className }) {
   return (
     <svg
       className={className}
-      width="320"
       height="47.168954866931735"
       viewBox="0 0 320 47.168954866931735"
     >
