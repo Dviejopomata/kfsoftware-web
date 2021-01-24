@@ -83,13 +83,7 @@ module.exports = {
             ...mdx,
             createLoader(function (src, ...rest) {
               console.log("createLoader", rest);
-              const content = [
-                'import Post from "@/components/Post"',
-                'export { getStaticProps } from "@/lib/getStaticProps"',
-                src,
-                "export default (props) => <Post meta={meta} {...props} />",
-              ].join("\n");
-
+              const content = src;
               if (content.includes("<!--more-->")) {
                 return this.callback(
                   null,

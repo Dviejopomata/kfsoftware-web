@@ -59,8 +59,8 @@ function Home({}) {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     });
 
     setContacted(true);
@@ -212,8 +212,8 @@ function Home({}) {
                                     "Necesitamos el email para contactarte",
                                   pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    message: "El email no es válido"
-                                  }
+                                    message: "El email no es válido",
+                                  },
                                 })}
                                 id="email"
                                 className={`form-input block w-full pr-10 ${
@@ -261,7 +261,7 @@ function Home({}) {
                                 name="telefono"
                                 ref={register({
                                   required:
-                                    "Necesitamos el teléfono para contactarte"
+                                    "Necesitamos el teléfono para contactarte",
                                 })}
                                 id="telefono"
                                 className={`form-input block w-full pr-10 ${
@@ -364,11 +364,6 @@ function Home({}) {
                     Productos
                   </a>
                 </Link>
-                {/* <Link href="/services" as="/services">
-                  <a className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 transition ease-in-out duration-150">
-                    Servicios
-                  </a>
-                </Link> */}
               </nav>
             </div>
           </div>
@@ -667,7 +662,7 @@ export async function getStaticProps() {
   //   };
   // });
   return {
-    props: {}
+    props: {},
   };
 }
 

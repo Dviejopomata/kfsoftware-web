@@ -1,17 +1,17 @@
-import { dviejo } from '@/lib/authors'
-import image from './card.jpg'
-
+import { dviejo } from "@/lib/authors";
+import image from "./card.jpg";
+import Post from "@/components/Post";
+export { getStaticProps } from "@/lib/getStaticProps";
 
 export const meta = {
   title: `Investigando el hack de SolarWinds`,
   description: `A lot of cool stuff has been added to Tailwind since the last time we published any screencasts, so we thought it would be a great idea to record a little series that covers all of the new additions.`,
-  date: '2020-09-23T18:30:00.000Z',
+  date: "2020-09-23T18:30:00.000Z",
   authors: [dviejo],
   image,
   type: "INVESTIGACION",
-  discussion: 'https://github.com/tailwindlabs/tailwindcss/discussions/2441',
-}
-
+  discussion: "https://github.com/tailwindlabs/tailwindcss/discussions/2441",
+};
 
 <!--excerpt-->
 
@@ -50,3 +50,5 @@ A lot of cool stuff has been added to Tailwind since the last time we published 
 ...with more to come soon! You can check out the whole series on our brand new [YouTube channel](https://www.youtube.com/channel/UCOe-8z68tgw9ioqVvYM4ddQ/).
 
 And don't forget to like and subscribe.
+
+export default (props) => <Post meta={meta} {...props} />;

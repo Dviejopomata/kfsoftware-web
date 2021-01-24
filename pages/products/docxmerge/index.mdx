@@ -1,5 +1,7 @@
 import { dviejo } from '@/lib/authors'
 import image from './logo.png'
+import Project from "@/components/Project";
+export { getStaticProps } from "@/lib/getStaticProps";
 
 
 export const meta = {
@@ -22,3 +24,5 @@ A lot of cool stuff has been added to Tailwind since the last time we published 
 <!--/excerpt-->
 
 Docxmerge description
+
+export default (props) => <Project meta={meta} {...props} />;

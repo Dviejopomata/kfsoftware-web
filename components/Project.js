@@ -164,9 +164,9 @@ export default function Post({ meta, children, posts }) {
                 </div>
               )}
               <div className="pt-8">
-                <Link href="/blog">
+                <Link href="/products">
                   <a className="text-teal-500 hover:text-teal-600">
-                    &larr; Back to the blog
+                    &larr; Back to products
                   </a>
                 </Link>
               </div>
