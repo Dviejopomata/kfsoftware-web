@@ -4,7 +4,6 @@ import Link from "next/link";
 import tinytime from "tinytime";
 import getAllProductsPreview from "@/lib/getAllProductsPreview";
 
-
 const products = getAllProductsPreview();
 const postDateTemplate = tinytime("{MMMM} {DD}, {YYYY}");
 
@@ -17,7 +16,7 @@ export default function ProductsIndex({}) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="divide-y divide-gray-200">
           <Head></Head>
-          
+
           <div className="pt-6 pb-8 space-y-2 md:space-y-5">
             <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
               Productos
@@ -67,7 +66,6 @@ export default function ProductsIndex({}) {
               );
             })}
           </ul>
-
         </div>
       </div>
     </>

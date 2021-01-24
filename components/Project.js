@@ -4,7 +4,7 @@ import tinytime from "tinytime";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { MDXProvider } from "@mdx-js/react";
-import Header from '@/components/Header'
+import Header from "@/components/Header";
 
 const mdxComponents = {
   pre: ({ className, ...props }) => (
@@ -29,7 +29,7 @@ export default function Project({ meta, children, posts }) {
   return (
     <>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-          <Header />
+        <Header />
       </div>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <article className="xl:divide-y xl:divide-gray-200">

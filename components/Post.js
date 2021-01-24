@@ -96,7 +96,7 @@ export default function Post({ meta, children, posts }) {
                       <img
                         src={author.avatar}
                         alt=""
-                        className="w-10 h-10 rounded-full"
+                        className="w-16 h-16 rounded-full"
                       />
                       <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
                         <dt className="sr-only">Name</dt>
