@@ -36,11 +36,11 @@ export default function Post({ meta, children, posts }) {
           <Head>
             <title>{meta.title} – Kung Fu Software</title>
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content="@tailwindcss" />
-            <meta name="twitter:creator" content="@tailwindcss" />
+            <meta name="twitter:site" content="@kungfusoftware" />
+            <meta name="twitter:creator" content="@kungfusoftware" />
             <meta
               name="twitter:title"
-              content={`${meta.title} – Tailwind CSS`}
+              content={`${meta.title} – Kung Fu Software`}
             />
             <meta name="twitter:description" content={meta.description} />
             <meta
@@ -54,7 +54,7 @@ export default function Post({ meta, children, posts }) {
             <meta property="og:type" content="article" />
             <meta
               property="og:title"
-              content={`${meta.title} – Tailwind CSS`}
+              content={`${meta.title} – Kung Fu Software`}
             />
             <meta property="og:description" content={meta.description} />
             <meta
@@ -166,7 +166,7 @@ export default function Post({ meta, children, posts }) {
               <div className="pt-8">
                 <Link href="/blog">
                   <a className="text-teal-500 hover:text-teal-600">
-                    &larr; Back to the blog
+                    &larr; Volver al blog
                   </a>
                 </Link>
               </div>

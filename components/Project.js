@@ -20,7 +20,7 @@ const mdxComponents = {
 
 const postDateTemplate = tinytime("{dddd}, {MMMM} {DD}, {YYYY}");
 
-export default function Post({ meta, children, posts }) {
+export default function Project({ meta, children, posts }) {
   const router = useRouter();
   const postIndex = posts.findIndex((post) => post.link === router.pathname);
   const previous = posts[postIndex + 1];
@@ -36,11 +36,11 @@ export default function Post({ meta, children, posts }) {
           <Head>
             <title>{meta.title} – Kung Fu Software</title>
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content="@tailwindcss" />
-            <meta name="twitter:creator" content="@tailwindcss" />
+            <meta name="twitter:site" content="@kungfusoftware" />
+            <meta name="twitter:creator" content="@kungfusoftware" />
             <meta
               name="twitter:title"
-              content={`${meta.title} – Tailwind CSS`}
+              content={`${meta.title} – Kung Fu Software`}
             />
             <meta name="twitter:description" content={meta.description} />
             <meta
@@ -54,7 +54,7 @@ export default function Post({ meta, children, posts }) {
             <meta property="og:type" content="article" />
             <meta
               property="og:title"
-              content={`${meta.title} – Tailwind CSS`}
+              content={`${meta.title} – Kung Fu Software`}
             />
             <meta property="og:description" content={meta.description} />
             <meta
@@ -67,7 +67,7 @@ export default function Post({ meta, children, posts }) {
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
                 <div>
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">Publicado el</dt>
                   <dd className="text-base leading-6 font-medium text-gray-500">
                     <time dateTime={meta.date}>
                       {postDateTemplate.render(new Date(meta.date))}
@@ -85,7 +85,7 @@ export default function Post({ meta, children, posts }) {
             style={{ gridTemplateRows: "auto 1fr" }}
           >
             <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
-              <dt className="sr-only">Authors</dt>
+              <dt className="sr-only">Autores</dt>
               <dd>
                 <ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   {meta.authors.map((author) => (
@@ -99,7 +99,7 @@ export default function Post({ meta, children, posts }) {
                         className="w-10 h-10 rounded-full"
                       />
                       <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
-                        <dt className="sr-only">Name</dt>
+                        <dt className="sr-only">Nombre</dt>
                         <dd className="text-gray-900">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
@@ -166,7 +166,7 @@ export default function Post({ meta, children, posts }) {
               <div className="pt-8">
                 <Link href="/products">
                   <a className="text-teal-500 hover:text-teal-600">
-                    &larr; Back to products
+                    &larr; Volver a los productos
                   </a>
                 </Link>
               </div>

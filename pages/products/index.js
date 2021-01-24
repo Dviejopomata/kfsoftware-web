@@ -23,7 +23,7 @@ export default function ProductsIndex({}) {
               Productos
             </h1>
             <p className="text-lg leading-7 text-gray-500">
-              Noticias y chascarrillos sobre tecnologia.
+              Productos y servicios desarrollados por Kung Fu Software
             </p>
           </div>
 
@@ -33,7 +33,7 @@ export default function ProductsIndex({}) {
                 <li key={link} className="py-12">
                   <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                     <dl>
-                      <dt className="sr-only">Published on</dt>
+                      <dt className="sr-only">Publicado el</dt>
                       <dd className="text-base leading-6 font-medium text-gray-500">
                         <time dateTime={meta.date}>
                           {postDateTemplate.render(new Date(meta.date))}
@@ -55,9 +55,9 @@ export default function ProductsIndex({}) {
                         <Link href={link}>
                           <a
                             className="text-teal-500 hover:text-teal-600"
-                            aria-label={`Read "${meta.title}"`}
+                            aria-label={`Leer "${meta.title}"`}
                           >
-                            Read more &rarr;
+                            Leer más &rarr;
                           </a>
                         </Link>
                       </div>
